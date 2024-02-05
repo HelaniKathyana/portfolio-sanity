@@ -1,0 +1,10 @@
+@use "../../styles/base.scss" as styles;
+
+.container {
+  flex-flow: column;
+}
+
+.filter {
+  flex-flow: wrap;
+  row-gap: styles.px-to-rem(10);
+}

@@ -1,0 +1,165 @@
+@use "../../styles/base.scss" as styles;
+
+.wrapper {
+  @include styles.breakpoint(max-width, desktop) {
+    flex-flow: column-reverse;
+  }
+
+  flex-flow: wrap;
+  height: 100%;
+}
+
+.introBg {
+  @media screen and (min-width: 768px) and (max-width: 1024px) and (min-height: 701px) {
+    height: 100%;
+  }
+
+  @media screen and (min-width: 1025px) and (min-height: 701px) {
+    height: calc(100vh - styles.$global-spacing-s * 7 - styles.$global-spacing-xxs);
+    padding: 0;
+  }
+
+  @media screen and (min-width: 768px) and (max-height: 700px) {
+    height: styles.px-to-rem(626);
+    padding: 0;
+  }
+
+  padding-top: styles.px-to-rem(57);
+  height: 100%;
+}
+
+.introImage {
+  @include styles.breakpoint(max-width, tablet) {
+    max-width: 80%;
+    height: auto;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    max-width: 60%;
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-width: 100%;
+  }
+}
+
+.contentWrapper {
+  @media screen and (min-width: 1025px) and (min-height: 701px) {
+    height: calc(100vh - styles.$global-spacing-s * 7 - styles.$global-spacing-xxs);
+  }
+
+  @media screen and (min-width: 768px) and (max-height: 700px) {
+    height: styles.px-to-rem(626);
+  }
+
+  height: 100%;
+}
+
+.text {
+  @include styles.breakpoint(max-width, desktop) {
+    padding: {
+      top: styles.px-to-rem(40);
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+.heading,
+.subheading {
+  color: styles.$white;
+  text-transform: capitalize;
+}
+
+.heading {
+  @include styles.breakpoint(max-width, mobile) {
+    font-size: styles.px-to-rem(36);
+    line-height: styles.px-to-rem(39);
+  }
+
+  @media screen and (min-width: 577px) and (max-width: 1024px) {
+    font-size: styles.px-to-rem(65);
+    line-height: styles.px-to-rem(71);
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    font-size: styles.px-to-rem(90);
+    line-height: styles.px-to-rem(96);
+  }
+
+  font-family: styles.$font-sothardjo;
+}
+
+.subheading,
+.subheadingText {
+  @include styles.breakpoint(max-width, mobile) {
+    font-size: styles.px-to-rem(26);
+    line-height: styles.px-to-rem(32);
+  }
+
+  @media screen and (min-width: 577px) and (max-width: 1024px) {
+    font-size: styles.px-to-rem(36);
+    line-height: styles.px-to-rem(39);
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    font-size: styles.px-to-rem(50);
+    line-height: styles.px-to-rem(56);
+  }
+}
+
+.subheading {
+  @include styles.breakpoint(max-width, mobile) {
+    margin-top: styles.px-to-rem(20);
+  }
+
+  @include styles.breakpoint(min-width, mobile) {
+    margin-top: styles.px-to-rem(50);
+  }
+
+  font-family: styles.$font-ubuntu;
+  font-weight: 700;
+}
+
+.subheadingText {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  margin-top: styles.px-to-rem(16);
+  color: styles.$vivid-cerise;
+  font-family: styles.$font-sketch-bold;
+}
+
+.containerWrapper {
+  height: 100%;
+  flex-flow: column;
+}
+
+.containerWrapper,
+.textWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shape {
+  bottom: styles.px-to-rem(-1);
+
+  svg {
+    transform: translateX(-50%);
+    width: 100vw;
+    height: styles.px-to-rem(70);
+    position: relative;
+    left: 50%;
+    z-index: -1;
+  }
+}
+
+.shapeBottom {
+  fill: styles.$chinese-black;
+}

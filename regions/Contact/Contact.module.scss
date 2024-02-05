@@ -1,0 +1,140 @@
+@use "../../styles/base.scss" as styles;
+
+.successBox {
+  background-color: styles.$cg-glue;
+  flex-flow: column;
+
+  h3 {
+    font-family: styles.$font-sketch-bold;
+  }
+
+  h3,
+  p {
+    color: styles.$british-racing-green;
+  }
+}
+
+.container,
+.form {
+  flex-flow: column;
+}
+
+.form {
+  margin-bottom: styles.px-to-rem(35);
+  max-width: styles.px-to-rem(800);
+}
+
+.copy,
+.methodsText,
+.subCopy {
+  font-family: styles.$font-figtree;
+  color: styles.$british-racing-green;
+}
+
+.input,
+.textarea {
+  box-shadow: 0 0 styles.px-to-rem(4) rgba(styles.$chinese-black, 0.08), 0px styles.px-to-rem(4) styles.px-to-rem(6) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.1), 0 styles.px-to-rem(2) styles.px-to-rem(4) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.06);
+  font-family: styles.$font-figtree;
+  background-color: styles.$seashell;
+  border-color: styles.$spanish-yellow;
+  color: styles.$sky-blue;
+}
+
+.group {
+  @include styles.breakpoint(max-width, desktop) {
+    flex-flow: column;
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    justify-content: flex-start;
+  }
+
+  .input {
+    @include styles.breakpoint(min-width, desktop) {
+      width: calc(50% - styles.$global-spacing-xxs * 2);
+    }
+
+    + .input {
+      @include styles.breakpoint(min-width, desktop) {
+        margin-left: styles.px-to-rem(16);
+      }
+    }
+  }
+}
+
+.button {
+  color: styles.$seashell;
+  background-color: styles.$spanish-yellow;
+  transition: all 300ms ease-in-out;
+
+  &:hover {
+    color: styles.$white;
+    background-color: darken(styles.$spanish-yellow, 10%);
+  }
+}
+
+.left,
+.right {
+  @include styles.breakpoint(max-width, desktop) {
+    width: 100%;
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    flex: 0 0 calc(50% - styles.$global-spacing-xxs * 8);
+  }
+}
+
+.right {
+  @include styles.breakpoint(max-width, desktop) {
+    margin-top: styles.px-to-rem(40);
+  }
+}
+
+.methods {
+  @include styles.breakpoint(max-width, tablet) {
+    flex-flow: column;
+  }
+
+  margin-top: styles.px-to-rem(15);
+}
+
+.methodsBlock {
+  @include styles.breakpoint(max-width, tablet) {
+    width: 100%;
+  }
+
+  @include styles.breakpoint(min-width, tablet) {
+    width: 33.33%;
+    padding: {
+      right: styles.px-to-rem(15);
+      left: styles.px-to-rem(15);
+    }
+  }
+}
+
+.methodsSeperator {
+  background-color: styles.$spanish-yellow;
+  width: styles.px-to-rem(100);
+}
+
+.methodsCircle {
+  box-shadow: 0 0 styles.px-to-rem(4) rgba(styles.$chinese-black, 0.08), 0 styles.px-to-rem(4) styles.px-to-rem(6) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.1), 0 styles.px-to-rem(2) styles.px-to-rem(4) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.06);
+  border: styles.px-to-rem(5) solid styles.$seashell;
+  background-color: styles.$spanish-yellow;
+  width: styles.px-to-rem(100);
+  height: styles.px-to-rem(100);
+}
+
+.icon {
+  fill: styles.$white;
+}
+
+.imageWrapper {
+  width: calc(100% - styles.$global-spacing-xxs * 8);
+}
+
+.shadow {
+  background-color: styles.$cg-glue;
+  top: styles.px-to-rem(-15);
+  left: styles.px-to-rem(-15);
+}

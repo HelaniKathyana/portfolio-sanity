@@ -1,0 +1,60 @@
+@use "../../styles/base.scss" as styles;
+
+.slider {
+  :global(.swiper-wrapper) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.info {
+  @include styles.breakpoint(max-width, mobile) {
+    display: none;
+  }
+
+  @include styles.breakpoint(min-width, mobile) {
+    display: block;
+  }
+
+  color: styles.$white;
+  font-size: styles.px-to-rem(18);
+  line-height: styles.px-to-rem(24);
+}
+
+.pagination {
+  @include styles.breakpoint(max-width, mobile) {
+    padding-top: styles.px-to-rem(15);
+  }
+
+  @include styles.breakpoint(min-width, mobile) {
+    padding-top: styles.px-to-rem(40);
+  }
+
+  :global(.swiper-pagination-bullet) {
+    @include styles.breakpoint(max-width, tablet) {
+      width: styles.px-to-rem(15);
+      height: styles.px-to-rem(15);
+    }
+
+    @include styles.breakpoint(min-width, tablet) {
+      width: styles.px-to-rem(20);
+      height: styles.px-to-rem(20);
+    }
+
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: styles.$seashell;
+    transition: all 300ms ease-in-out;
+    margin-right: styles.px-to-rem(10);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    background-color: styles.$spanish-yellow;
+  }
+
+  display: flex;
+}

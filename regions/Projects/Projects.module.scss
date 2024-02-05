@@ -1,0 +1,13 @@
+@use "../../styles/base.scss" as styles;
+
+.subheading {
+  @include styles.breakpoint(min-width, desktop) {
+    margin-top: styles.px-to-rem(25);
+  }
+
+  font-family: styles.$font-figtree;
+  color: styles.$british-racing-green;
+  font-size: styles.px-to-rem(25);
+  line-height: styles.px-to-rem(32);
+  margin-bottom: styles.px-to-rem(25);
+}

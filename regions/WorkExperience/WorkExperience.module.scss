@@ -1,0 +1,25 @@
+@use "../../styles/base.scss" as styles;
+
+.container {
+  &::before {
+    @include styles.breakpoint(max-width, tablet) {
+      left: styles.px-to-rem(26);
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      left: styles.px-to-rem(18);
+    }
+
+    @include styles.breakpoint(min-width, desktop) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    content: "";
+    position: absolute;
+    top: styles.px-to-rem(0);
+    height: 100%;
+    width: styles.px-to-rem(4);
+    background-color: styles.$green-sheen;
+  }
+}
