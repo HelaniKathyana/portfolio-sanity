@@ -1,0 +1,76 @@
+@use "../../../../styles/base.scss" as styles;
+
+.wrapper {
+  .button,
+  .date,
+  .location,
+  .module {
+    font-family: styles.$font-figtree;
+  }
+}
+
+.left,
+.right {
+  @include styles.breakpoint(max-width, desktop) {
+    width: 100%;
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    flex: 0 0 calc(50% - 30px);
+  }
+}
+
+.company {
+  @include styles.breakpoint(max-width, desktop) {
+    font-size: styles.px-to-rem(24);
+    line-height: styles.px-to-rem(24);
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    font-size: styles.px-to-rem(30);
+    line-height: styles.px-to-rem(30);
+  }
+
+  font-family: styles.$font-ubuntu;
+}
+
+.location,
+.module {
+  color: styles.$british-racing-green;
+}
+
+.title {
+  font-family: styles.$font-sketch-bold;
+  font-size: styles.px-to-rem(30);
+  line-height: styles.px-to-rem(33);
+  color: styles.$vivid-red-tangelo;
+}
+
+.subheading {
+  color: styles.$british-racing-green;
+  font-size: styles.px-to-rem(18);
+  line-height: styles.px-to-rem(24);
+}
+
+.button {
+  color: styles.$seashell;
+  background-color: styles.$spanish-yellow;
+  transition: all 300ms ease-in-out;
+
+  &:hover {
+    color: styles.$white;
+    background-color: darken(styles.$spanish-yellow, 10%);
+  }
+}
+
+.box {
+  top: 5%;
+  background-color: styles.$white;
+  border-width: styles.px-to-rem(5);
+  border-style: solid;
+  box-shadow: 0 0 styles.px-to-rem(4) rgba(styles.$chinese-black, 0.08), 0px styles.px-to-rem(4) styles.px-to-rem(6) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.1), 0 styles.px-to-rem(2) styles.px-to-rem(4) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.06);
+
+  img {
+    align-self: center;
+  }
+}

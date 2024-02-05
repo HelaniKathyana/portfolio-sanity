@@ -1,0 +1,83 @@
+@use "../../../../styles/base.scss" as styles;
+
+$mobile-nav-height: styles.px-to-rem(54);
+$mobile-link-spacing: styles.px-to-rem(30);
+
+.navbar {
+  @include styles.breakpoint(max-width, desktop) {
+    display: none;
+    padding-top: styles.px-to-rem(54);
+    width: 100%;
+  }
+}
+
+.list {
+  @include styles.breakpoint(max-width, desktop) {
+    border-top: styles.px-to-rem(1) solid styles.$amaranth-pink;
+    flex-flow: column;
+    width: 100%;
+    height: calc(100vh - $mobile-nav-height);
+    overflow-y: auto;
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    justify-content: flex-end;
+  }
+}
+
+.listItem {
+  @include styles.breakpoint(max-width, desktop) {
+    width: 100%;
+  }
+}
+
+.link {
+  @include styles.breakpoint(max-width, desktop) {
+    padding: {
+      top: styles.px-to-rem(15);
+      right: styles.px-to-rem(10);
+      bottom: styles.px-to-rem(15);
+      left: styles.px-to-rem(10);
+    }
+    border: {
+      bottom: styles.px-to-rem(1) solid styles.$amaranth-pink;
+      left: styles.px-to-rem(10) solid styles.$amaranth-pink;
+    }
+    justify-content: center;
+    width: calc(100% - $mobile-link-spacing);
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    padding: {
+      top: styles.px-to-rem(25);
+      right: styles.px-to-rem(15);
+      bottom: styles.px-to-rem(15);
+      left: styles.px-to-rem(15);
+    }
+    border-bottom: styles.px-to-rem(10) solid styles.$transparent;
+  }
+
+  color: styles.$british-racing-green;
+  transition: all 300ms ease-in-out;
+
+  &:hover {
+    @include styles.breakpoint(min-width, desktop) {
+      color: styles.$white;
+      border-bottom: styles.px-to-rem(10) solid styles.$amaranth-pink;
+      background-color: styles.$british-racing-green;
+    }
+  }
+}
+
+.linkActive {
+  @include styles.breakpoint(max-width, desktop) {
+    color: styles.$white;
+    background-color: styles.$british-racing-green;
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    color: styles.$white;
+    border-bottom: styles.px-to-rem(10) solid styles.$amaranth-pink;
+    background-color: styles.$british-racing-green;
+  }
+}

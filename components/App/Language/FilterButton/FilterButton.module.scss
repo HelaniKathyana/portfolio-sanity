@@ -1,0 +1,41 @@
+@use "../../../../styles/base.scss" as styles;
+
+.button {
+  @include styles.breakpoint(max-width, mobile) {
+    padding: {
+      top: styles.px-to-rem(10);
+      right: styles.px-to-rem(10);
+      bottom: styles.px-to-rem(10);
+      left: styles.px-to-rem(10);
+    }
+  }
+
+  @include styles.breakpoint(min-width, mobile) {
+    padding: {
+      top: styles.px-to-rem(10);
+      right: styles.px-to-rem(25);
+      bottom: styles.px-to-rem(10);
+      left: styles.px-to-rem(25);
+    }
+  }
+
+  font-family: styles.$font-figtree;
+  background-color: styles.$seashell;
+  color: styles.$british-racing-green;
+  margin-right: styles.px-to-rem(5);
+  transition: all 300ms ease;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    background-color: styles.$spanish-yellow;
+    color: styles.$seashell;
+  }
+}
+
+.active {
+  background-color: styles.$spanish-yellow;
+  color: styles.$seashell;
+}

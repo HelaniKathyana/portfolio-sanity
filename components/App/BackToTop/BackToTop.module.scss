@@ -1,0 +1,23 @@
+@use "../../../styles/base.scss" as styles;
+
+.wrapper {
+  flex-flow: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+
+  &[data-visibility="true"] {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.icon {
+  fill: styles.$vivid-cerise;
+  transform: rotate(-45deg);
+}
+
+.text {
+  font-family: styles.$font-figtree;
+  color: styles.$vivid-cerise;
+}

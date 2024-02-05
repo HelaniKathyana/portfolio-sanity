@@ -1,0 +1,68 @@
+@use "../../../../styles/base.scss" as styles;
+
+.overlay {
+  background-color: rgba(styles.$british-racing-green, 0.85);
+}
+
+.popup {
+  @include styles.breakpoint(max-width, mobile) {
+    height: px-to-rem(475);
+    width: calc(100% - styles.$global-spacing-m * 2);
+    left: px-to-rem(15);
+    top: calc(styles.$global-spacing-s * 5 + styles.$global-spacing-xxs + styles.$global-spacing-m);
+  }
+
+  @include styles.breakpoint(min-width, mobile) {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  background-color: styles.$white;
+  box-shadow: 0 styles.px-to-rem(8) styles.px-to-rem(16) rgba(styles.$british-racing-green, 0.15);
+  max-width: styles.px-to-rem(650);
+  transition: all 300ms ease-in-out;
+}
+
+.header {
+  border-bottom: 1px solid styles.$british-racing-green;
+}
+
+.title {
+  font-family: styles.$font-sketch-bold;
+  color: styles.$british-racing-green;
+  font-size: styles.px-to-rem(30);
+  line-height: styles.px-to-rem(33);
+}
+
+.close {
+  path {
+    fill: styles.$british-racing-green;
+  }
+}
+
+.copy,
+.heading {
+  color: styles.$british-racing-green;
+}
+
+.heading {
+  font-family: styles.$font-ubuntu;
+  font-size: styles.px-to-rem(25);
+  line-height: styles.px-to-rem(30);
+}
+
+.copy,
+.link {
+  font-family: styles.$font-figtree;
+}
+
+.copy {
+  margin-bottom: styles.px-to-rem(20);
+}
+
+.link {
+  color: styles.$seashell;
+  background-color: styles.$spanish-yellow;
+  border: 1px solid styles.$spanish-yellow;
+}

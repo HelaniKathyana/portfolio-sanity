@@ -1,0 +1,7 @@
+@use "../../../styles/base.scss" as styles;
+
+$max-container: styles.px-to-rem(1200);
+
+.container {
+  max-width: $max-container;
+}

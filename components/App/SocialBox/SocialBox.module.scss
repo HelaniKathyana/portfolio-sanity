@@ -1,0 +1,25 @@
+@use "../../../styles/base.scss" as styles;
+
+.box {
+  @include styles.breakpoint(max-width, mobile) {
+    flex: 100%;
+  }
+
+  @include styles.breakpoint(min-width, mobile) {
+    flex: 0 0 50%;
+  }
+
+  flex-flow: column;
+}
+
+.circle,
+.divider {
+  background-color: styles.$white;
+}
+
+.heading {
+  font-family: styles.$font-ubuntu;
+  color: styles.$white;
+  font-size: styles.px-to-rem(25);
+  line-height: styles.px-to-rem(30);
+}

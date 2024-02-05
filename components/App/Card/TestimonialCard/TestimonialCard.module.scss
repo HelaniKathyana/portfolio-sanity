@@ -1,0 +1,62 @@
+@use "../../../../styles/base.scss" as styles;
+
+.block {
+  @include styles.breakpoint(max-width, largeTablet) {
+    display: block;
+  }
+
+  @include styles.breakpoint(min-width, largeTablet) {
+    display: flex;
+  }
+}
+
+.quote {
+  @include styles.breakpoint(min-width, largeTablet) {
+    width: 75%;
+  }
+}
+
+.author {
+  @include styles.breakpoint(max-width, largeTablet) {
+    margin-top: styles.px-to-rem(20);
+  }
+
+  @include styles.breakpoint(min-width, largeTablet) {
+    padding-left: styles.px-to-rem(30);
+    width: 25%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+}
+
+.copy,
+.link {
+  font-size: styles.px-to-rem(25);
+  line-height: styles.px-to-rem(30);
+}
+
+.copy {
+  @include styles.breakpoint(min-width, largeTablet) {
+    border-right: 1px solid styles.$white;
+    padding-right: styles.px-to-rem(20);
+  }
+
+  color: styles.$white;
+}
+
+.link {
+  font-family: styles.$font-sketch-bold;
+  color: styles.$green-sheen;
+}
+
+.authorName {
+  font-family: styles.$font-figtree;
+  color: styles.$green-sheen;
+  font-size: styles.px-to-rem(22);
+  line-height: styles.px-to-rem(32);
+}
+
+.authorRole {
+  color: styles.$seashell;
+}

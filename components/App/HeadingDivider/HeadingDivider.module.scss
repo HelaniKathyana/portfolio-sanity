@@ -1,0 +1,47 @@
+@use "../../../styles/base.scss" as styles;
+
+.dividerBgWrapper {
+  background-color: styles.$green-sheen;
+}
+
+.dividerImage {
+  z-index: 1;
+}
+
+.dividerHeading {
+  font-family: styles.$font-sketch-bold;
+  font-size: styles.px-to-rem(36);
+  line-height: styles.px-to-rem(39);
+  margin: 0;
+  color: styles.$british-racing-green;
+}
+
+.dividerLine {
+  top: styles.px-to-rem(-15);
+  background-color: styles.$british-racing-green;
+}
+
+.dividerIcon,
+.placeholderIcon {
+  top: styles.px-to-rem(-12);
+}
+
+.dividerIcon {
+  margin-left: styles.px-to-rem(-14);
+}
+
+.placeholderIcon {
+  margin-left: styles.px-to-rem(-12);
+  background-color: styles.$british-racing-green;
+}
+
+.dividerBg {
+  margin-left: styles.px-to-rem(-22);
+  top: styles.px-to-rem(-8);
+}
+
+.triangle {
+  border-left: styles.px-to-rem(20) solid styles.$transparent;
+  border-right: styles.px-to-rem(20) solid styles.$transparent;
+  border-top: styles.px-to-rem(20) solid styles.$green-sheen;
+}

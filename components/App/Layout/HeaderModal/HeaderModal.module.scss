@@ -1,0 +1,148 @@
+@use "../../../../styles/base.scss" as styles;
+
+.burgerMenu,
+.closeMenu {
+  @include styles.breakpoint(max-width, desktop) {
+    height: styles.px-to-rem(45);
+    width: styles.px-to-rem(45);
+  }
+}
+
+.burgerMenu {
+  @include styles.breakpoint(min-width, desktop) {
+    display: none;
+  }
+}
+
+.menuIcon {
+  @include styles.breakpoint(max-width, desktop) {
+    width: styles.px-to-rem(35);
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    height: styles.px-to-rem(2);
+    background-color: styles.$chinese-black;
+    transform: none;
+  }
+
+  &::before {
+    display: flex;
+  }
+
+  &::after {
+    width: 100%;
+  }
+
+  span {
+    width: calc(100% - styles.$global-spacing-m / 2);
+    background-color: styles.$chinese-black;
+    transform: translateY(-50%);
+  }
+}
+
+.content {
+  @include styles.breakpoint(max-width, desktop) {
+    width: calc(100% - styles.$global-spacing-l - styles.$global-spacing-xl);
+  }
+
+  border-left: styles.px-to-rem(1) solid styles.$amaranth-pink;
+  background-color: styles.$linen;
+
+  .navbar {
+    display: flex;
+  }
+
+  &[data-state="open"] {
+    animation: slideIn 300ms ease-out;
+  }
+
+  &[data-state="closed"] {
+    animation: slideOut 300ms ease-out;
+  }
+}
+
+.overlay {
+  background-color: styles.$overlay;
+
+  &[data-state="open"] {
+    animation: fadeIn 300ms ease-out;
+  }
+
+  &[data-state="closed"] {
+    animation: fadeOut 300ms ease-out;
+  }
+}
+
+:not([data-state="open"]) {
+  .menuIcon {
+    &::before {
+      width: calc(100% - styles.$global-spacing-m);
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+}
+
+[data-state="open"] {
+  .menuIcon {
+    &::before,
+    &::after {
+      top: 50%;
+    }
+
+    &::before {
+      width: 100%;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}

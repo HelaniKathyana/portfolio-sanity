@@ -1,0 +1,214 @@
+@use "../../../../styles/base.scss" as styles;
+
+.wrapper {
+  @include styles.breakpoint(max-width, desktop) {
+    flex-flow: row-reverse;
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    &:nth-child(even) {
+      flex-flow: row-reverse;
+
+      .iconDate {
+        flex-flow: row-reverse;
+      }
+
+      .date {
+        right: styles.px-to-rem(30);
+      }
+
+      .content {
+        &::before {
+          left: auto;
+          right: 100%;
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      flex-flow: row;
+
+      .iconDate {
+        flex-flow: row;
+      }
+
+      .date {
+        left: styles.px-to-rem(30);
+      }
+
+      .content {
+        &::before {
+          left: 100%;
+          right: auto;
+        }
+      }
+    }
+  }
+}
+
+.iconWrapper {
+  @include styles.breakpoint(max-width, desktop) {
+    width: styles.px-to-rem(50);
+    height: styles.px-to-rem(50);
+    min-width: styles.px-to-rem(50);
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    width: styles.px-to-rem(60);
+    height: styles.px-to-rem(60);
+    min-width: styles.px-to-rem(60);
+  }
+
+  background-color: styles.$white;
+  box-shadow: 0 0 styles.px-to-rem(4) rgba(styles.$chinese-black, 0.08), 0 styles.px-to-rem(4) styles.px-to-rem(6) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.1), 0 styles.px-to-rem(2) styles.px-to-rem(4) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.06);
+}
+
+.iconDate {
+  @include styles.breakpoint(min-width, desktop) {
+    margin: {
+      right: calc(5% - styles.$global-spacing-l);
+      left: calc(5% - styles.$global-spacing-l);
+    }
+  }
+}
+
+.content {
+  @include styles.breakpoint(max-width, desktop) {
+    flex-grow: 1;
+    margin-left: styles.px-to-rem(15);
+
+    &::before {
+      content: none;
+    }
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    width: 45%;
+    flex-grow: 0;
+    will-change: transform;
+    margin: 0;
+
+    &::before {
+      content: "";
+    }
+  }
+
+  .date {
+    @include styles.breakpoint(min-width, desktop) {
+      display: none;
+    }
+  }
+
+  box-shadow: 0 0 styles.px-to-rem(4) rgba(styles.$chinese-black, 0.08), 0 styles.px-to-rem(4) styles.px-to-rem(6) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.1), 0 styles.px-to-rem(2) styles.px-to-rem(4) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.06);
+  background-color: styles.$white;
+
+  &::before {
+    position: absolute;
+    top: styles.px-to-rem(24);
+    width: styles.px-to-rem(0);
+    height: styles.px-to-rem(0);
+    border: {
+      top: styles.px-to-rem(10) solid styles.$transparent;
+      right: styles.px-to-rem(10) solid styles.$transparent;
+      bottom: styles.px-to-rem(10) solid styles.$transparent;
+      left: styles.px-to-rem(10) solid styles.$white;
+    }
+  }
+}
+
+.heading,
+.roleType {
+  color: styles.$british-racing-green;
+}
+
+.heading {
+  @include styles.breakpoint(max-width, smallMobile) {
+    font-size: styles.px-to-rem(18);
+    line-height: styles.px-to-rem(23);
+  }
+
+  @include styles.breakpoint(min-width, smallMobile + 1px) {
+    font-size: styles.px-to-rem(25);
+    line-height: styles.px-to-rem(30);
+  }
+
+  font-family: styles.$font-ubuntu;
+}
+
+.roleType {
+  font-size: styles.px-to-rem(18);
+  line-height: styles.px-to-rem(24);
+}
+
+.button,
+.date,
+.description,
+.listItem,
+.roleType {
+  font-family: styles.$font-figtree;
+}
+
+.date,
+.listItem {
+  font-size: styles.px-to-rem(13);
+}
+
+.date {
+  @include styles.breakpoint(max-width, desktop) {
+    height: styles.px-to-rem(50);
+  }
+
+  @include styles.breakpoint(min-width, desktop) {
+    height: styles.px-to-rem(60);
+  }
+}
+
+.date,
+.description {
+  color: styles.$british-racing-green;
+}
+
+.listItem {
+  color: styles.$seashell;
+  background-color: styles.$green-sheen;
+}
+
+.button {
+  background-color: styles.$spanish-yellow;
+  color: styles.$seashell;
+  transition: all 300ms ease-in-out;
+
+  &:hover {
+    background-color: darken(styles.$spanish-yellow, 10%);
+  }
+}
+
+.hiddenContent {
+  transition: height 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+
+.activeContent {
+  height: auto;
+  opacity: 1;
+}
+
+.accordion {
+  .accordionHeader {
+    .button {
+      transform: rotate(0deg);
+      transition: transform 0.6s ease;
+    }
+  }
+
+  .accordionContent {
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+  }
+
+  .activeAccordion {
+    .button {
+      transform: rotate(180deg);
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@use "../../../styles/base.scss" as styles;
+
+.language {
+  @include styles.breakpoint(max-width, tablet) {
+    flex: 0 0 calc(50% - styles.$global-spacing-xs);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    flex: 0 0 calc(33.33% - styles.$global-spacing-l);
+  }
+
+  @media screen and (min-width: 992px) and (max-width: 1199px) {
+    flex: 0 0 calc(25% - styles.$global-spacing-l);
+  }
+
+  @include styles.breakpoint(min-width, smallDesktop) {
+    flex: 0 0 calc(20% - styles.$global-spacing-l);
+  }
+}
+
+.circle {
+  @include styles.breakpoint(max-width, tablet) {
+    width: styles.px-to-rem(130);
+    height: styles.px-to-rem(130);
+    border: styles.px-to-rem(2) solid styles.$seashell;
+    padding: {
+      right: styles.px-to-rem(5);
+      left: styles.px-to-rem(5);
+    }
+  }
+
+  @include styles.breakpoint(min-width, tablet) {
+    width: styles.px-to-rem(180);
+    height: styles.px-to-rem(180);
+    border: styles.px-to-rem(5) solid styles.$seashell;
+    padding: {
+      right: styles.px-to-rem(16);
+      left: styles.px-to-rem(16);
+    }
+  }
+
+  box-shadow: 0 0 styles.px-to-rem(4) rgba(styles.$chinese-black, 0.08), 0 styles.px-to-rem(4) styles.px-to-rem(6) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.1), 0 styles.px-to-rem(2) styles.px-to-rem(4) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.06);
+}
+
+.background {
+  @include styles.breakpoint(max-width, tablet) {
+    width: styles.px-to-rem(126);
+    height: styles.px-to-rem(126);
+  }
+
+  @include styles.breakpoint(min-width, tablet) {
+    width: styles.px-to-rem(170);
+    height: styles.px-to-rem(170);
+  }
+}
+
+.label {
+  @include styles.breakpoint(max-width, tablet) {
+    margin: {
+      top: styles.px-to-rem(-15);
+      right: styles.px-to-rem(5);
+      left: styles.px-to-rem(5);
+    }
+  }
+
+  @include styles.breakpoint(min-width, tablet) {
+    margin: {
+      top: styles.px-to-rem(-35);
+      right: styles.px-to-rem(10);
+      left: styles.px-to-rem(10);
+    }
+  }
+}
+
+.text {
+  @include styles.breakpoint(max-width, tablet) {
+    font-size: styles.px-to-rem(14);
+  }
+
+  font-family: styles.$font-figtree;
+  color: styles.$seashell;
+}

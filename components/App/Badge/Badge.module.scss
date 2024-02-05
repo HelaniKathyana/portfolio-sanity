@@ -1,0 +1,74 @@
+
+@use "../../../styles/base.scss" as styles;
+
+.badge {
+  @include styles.breakpoint(min-width, tablet) {
+    display: flex;
+  }
+
+  font-family: styles.$font-figtree;
+  letter-spacing: px-to-rem(2);
+  color: styles.$spanish-yellow;
+  transform: rotate(-14deg);
+  filter: drop-shadow(
+    0.25em 0.7em 0.95em rgba(styles.$british-racing-green, 0.8)
+  );
+  transition: 300ms all ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: styles.px-to-rem(150);
+    height: styles.px-to-rem(150);
+    background-color: styles.$british-racing-green;
+    border-radius: 100%;
+    opacity: 0.8;
+    transition: opacity 300ms linear;
+  }
+
+  &:hover {
+    color: styles.$seashell;
+    text-decoration: none;
+    transform: rotate(-10deg) scale(1.05);
+
+    &::before {
+      opacity: 0.9;
+    }
+
+    .text {
+      border-color: styles.$seashell;
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    z-index: 0;
+    width: styles.px-to-rem(150);
+    height: styles.px-to-rem(150);
+
+    text {
+      font: var(--font-body-copy);
+    }
+  }
+}
+
+.text {
+  border-radius: styles.px-to-rem(10);
+  min-width: styles.px-to-rem(175);
+  background-color: styles.$british-racing-green;
+  border: styles.px-to-rem(1) solid styles.$spanish-yellow;
+  padding: {
+    top: styles.px-to-rem(5);
+    right: styles.px-to-rem(10);
+    bottom: styles.px-to-rem(5);
+    left: styles.px-to-rem(10);
+  }
+}

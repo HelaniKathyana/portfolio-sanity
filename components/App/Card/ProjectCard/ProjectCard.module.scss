@@ -1,0 +1,52 @@
+@use "../../../../styles/base.scss" as styles;
+
+.card {
+  @include styles.breakpoint(min-width, desktop) {
+    flex: 0 0 calc(33.33% - styles.$global-spacing-xxs * 7);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    flex: 0 0 calc(50% - styles.$global-spacing-xxs * 7);
+  }
+
+  &:hover {
+    .line {
+      width: styles.px-to-rem(40) !important;
+    }
+  }
+}
+
+.header {
+  font-family: styles.$font-ubuntu;
+  color: styles.$seashell;
+  font-size: styles.px-to-rem(18);
+  line-height: styles.px-to-rem(24);
+}
+
+.overlay {
+  background-color: rgba(styles.$british-racing-green, 0.6);
+}
+
+.details {
+  flex-flow: column;
+}
+
+.copy {
+  color: styles.$seashell;
+}
+
+.line {
+  background-color: styles.$seashell;
+  transition: all 500ms ease;
+}
+
+.iconLink + .iconLink {
+  margin-left: styles.px-to-rem(10);
+}
+
+.button {
+  font-family: styles.$font-figtree;
+  background-color: styles.$white;
+  font-size: styles.px-to-rem(13);
+  box-shadow: 0 0 styles.px-to-rem(4) rgba(styles.$chinese-black, 0.08), 0 styles.px-to-rem(4) styles.px-to-rem(6) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.1), 0 styles.px-to-rem(2) styles.px-to-rem(4) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.06);
+}
